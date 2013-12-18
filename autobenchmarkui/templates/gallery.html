@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block bodycontent %}
+<div class="row" style="padding-top: 20px">
+
+        <div class="col-lg-12">
+            <h1 class="page-header">Benchmarks for {{ gallerystatic }}</h1>
+        </div>
+
+        {% for item in galleryvertical %}
+            <div class="row-short">
+            {%  for metric in metrics %}
+                {% set urltail = ('?metric=' + metric + '&' + gallerystaticKey + '=' + gallerystatic + '&' + galleryverticalKey + '=' + item) | safe %}
+                <div class="col-lg-2 col-md-2 col-xs-6 thumb thumbnail" id="{{ 'id_' + item }}{{ metric }}">
+                    <script type="text/javascript">
+                        DrawGraph(
+                            DrawThumbnailGraph,
+                            '/thumbjson{{ urltail }}',
+                            '<a href="/detail{{ urltail }}' + '">' + '<font color="FFFFFF">{{ item }} {{ metric }}</font>' + '</a>',
+                            '{{ "id_" + item }}{{ metric }}',
+                            '{{ item }}'
+                        )
+                    </script>
+                </div>
+            {%  endfor %}
+            </div>
+        {%  endfor %}
+
+    </div>
+{% endblock %}

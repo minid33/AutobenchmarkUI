@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block bodycontent %}
+    <div class="row" style="padding-top: 10px">
+    <label class="control-label" for="dropbenchmark">Drop Benchmark</label>
+    <br/>
+    <form class="form-horizontal" action='/admin' method="POST">
+        <fieldset>
+            <select id="dropbenchmark" name="dropbenchmark"
+                    class="form-control">
+                {% for bench in benchmarks %}
+                    <option value={{ bench }}>{{ bench }}</option>
+                {% endfor %}
+            </select>
+            <button id="dropbenchmark" name="dropbenchmark"
+                    class="btn btn-danger" data-toggle="modal"
+                    data-target="#erasemodal" type="button">
+                Drop Benchmark
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="erasemodal" tabindex="-1" role="dialog"
+                 aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close"
+                                    data-dismiss="modal"
+                                    aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="eraseModalLabel">
+                                Warning! Irrevocable action!</h4>
+                        </div>
+                        <div class="modal-body" style="text-align: center">
+                            <img src="{{ url_for('static', filename='danger.jpg') }}"><br/>
+                            <strong>
+                                The action you are about to perform will erase
+                                data from the database, there is no going back
+                                from this.<br/>
+                                There's even a chance if you do this by mistake
+                                that it will not be restorable from backups.
+                            </strong>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default"
+                                    data-dismiss="modal">Close
+                            </button>
+                            <button type="submit" class="btn btn-danger">Erase
+                                the benchmark
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+
+
+        </fieldset>
+    </form>
+
+</div>
+{% endblock %}

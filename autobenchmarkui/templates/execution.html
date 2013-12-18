@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block bodycontent %}
+<div class="row" style="padding-top: 20px">
+
+    <div class="col-lg-12">
+            <h1 class="page-header"></h1>
+        </div>
+
+    <div class="col-lg-12 col-md-12 col-xs-12 thumb">
+        <script type="text/javascript">
+            DrawGraph(
+                DrawExecutionGraph,
+                '/executionjson/{{ id }}?metric={{ metric }}',
+                'Execution of {{ title }}',
+                'graphcont',
+                '{{ title }}'
+            );
+        </script>
+        <div id="graphcont"></div>
+    </div>
+</div>
+{% endblock %}
