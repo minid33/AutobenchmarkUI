@@ -103,8 +103,8 @@ def StartLocalMongo():
         return
     mongodir = tempfile.mkdtemp('mongo')
     mongod = os.path.join(
-        os.path.dirname(__file__), '..', '..', '..',
-        'binaries', 'mongodb', '2.4.4', 'mongod.exe')
+        os.path.dirname(__file__), '..', '..',
+        'bin', 'win_x64', '2.4.8', 'mongod.exe')
     args = [mongod, '--dbpath',
             mongodir,
             '--port', str(config.TestingConfig.MONGO_PORT),
@@ -112,7 +112,6 @@ def StartLocalMongo():
     mongoproc = subprocess.Popen(args, stderr=subprocess.STDOUT)
     atexit.register(mongoproc.kill)
     StartLocalMongo._started = True
-    #time.sleep(1)
 
 
 class BaseMongoTest(unittest.TestCase):
