@@ -97,4 +97,4 @@ At its core the AutobenchmarkUI is simply a flask application. You can read alte
 
 These tests are run using nose.
 
-You will need to either fix the path to mongod.exe in the tests's __init__.py or add the binaries into /AutobenchmarkUI/bin/win_x64/2.4.8. I haven't tested it but you can probably point it to /usr/bin or where ever your distro put the mongod binary on linux.
+You will need to either fix the path to mongod.exe in the tests's `__init__.py` or add the binaries into /AutobenchmarkUI/bin/win_x64/2.4.8. I haven't tested it but you can probably point it to /usr/bin or where ever your distro put the mongod binary on linux.
