@@ -47,6 +47,7 @@ and get a nice page like this, which probably doesnt have as many graphs or resu
 
 ## Requirements
 
+There's no reason this wont work on a linux distro but I've only tested this on windows 7/8/Server 2008.
 
 * [Mongodb](http://www.mongodb.org/downloads) 2.4.8+
 * [Lastest Python 2.7.x](http://python.org/download/) with [Virtualenv](http://www.virtualenv.org/en/latest/virtualenv.html#installation) and [Pip](http://www.pip-installer.org/en/latest/installing.html)
@@ -90,3 +91,9 @@ At its core the AutobenchmarkUI is simply a flask application. You can read alte
 * Evaluate using an alternative graphing library that has a more open liscence.
 * Clean up the pip_requirements.txt to remove requirements that are not used.
 * Rename testcasename to benchmarkname
+* 
+# Running the unit tests
+
+These tests are run using nose.
+
+You will need to either fix the path to mongod.exe in the tests's __init__.py or add the binaries into /AutobenchmarkUI/bin/win_x64/2.4.8. I haven't tested it but you can probably point it to /usr/bin or where ever your distro put the mongod binary on linux.
