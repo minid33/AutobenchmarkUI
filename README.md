@@ -22,7 +22,7 @@ This should be in the format of a posted result:
         'metrics': {
           keyname: list
         },
-        'testcasename': string
+        'benchmarkname': string
     }
 
 
@@ -90,8 +90,6 @@ At its core the AutobenchmarkUI is simply a flask application. You can read alte
 * Remove dependancy on mongokit, it was initially introduced to enforce structure on our data but this really kills the power of a NoSQL to add new structures when we need to.
 * Evaluate using an alternative graphing library that has a more open liscence.
 * Clean up the pip_requirements.txt to remove requirements that are not used.
-* Rename testcasename to benchmarkname
-* 
 
 # Running the unit tests
 

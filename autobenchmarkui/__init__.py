@@ -135,7 +135,7 @@ def get_graph_data(baseSearch, metric, aggpoint, daysToReturn, format_results):
 
     cursor = coll.find(
         baseSearch,
-        {aggpoint: 1, 'testcasename': 1, 'entrytime': 1, 'buildnumber': 1, 'branch': 1}
+        {aggpoint: 1, 'benchmarkname': 1, 'entrytime': 1, 'buildnumber': 1, 'branch': 1}
     )
 
     data = format_results(cursor, metric)
@@ -167,7 +167,7 @@ def get_graph_data_from_request(request_, default_days):
 
     search = {
         'machinename': kwargs['machinename'],
-        'testcasename': kwargs['bench'],
+        'benchmarkname': kwargs['bench'],
         metricAndCalc: {'$exists': True}}
 
     for k, v in search.items():
@@ -240,7 +240,7 @@ def validate_entry(json_attempt):
         data = json.loads(json_attempt)
     except Exception:
         return False
-    requiredfields = ['branch', 'buildnumber', 'machinename', 'testcasename']
+    requiredfields = ['branch', 'buildnumber', 'machinename', 'benchmarkname']
     for key in requiredfields:
         if key not in data.keys():
             app.logger.info(
@@ -264,7 +264,7 @@ def admin():
 def get_base_kwargs():
     return {
         'machines': dbmodel.get_unique_values_for_key('machinename', CONNDATA),
-        'benchmarks': sorted(dbmodel.get_unique_values_for_key('testcasename', CONNDATA)),
+        'benchmarks': sorted(dbmodel.get_unique_values_for_key('benchmarkname', CONNDATA)),
         'metrics': ['fps', 'frametime', 'workingset', 'timedelta'],
     }
 

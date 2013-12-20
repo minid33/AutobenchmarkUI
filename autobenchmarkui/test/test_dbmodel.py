@@ -42,7 +42,7 @@ class TestAggregateFilters(unittest.TestCase):
     def setUp(self):
         self.sampleFilter = [
             {'$match': {'machinename': 'winxp', 'branch': 'MAIN'}},
-            {'$project': {'testcasename': 1, 'machinename': 1,
+            {'$project': {'benchmarkname': 1, 'machinename': 1,
                           'buildnumber': 1, 'metrics.fps': 1, 'entrytime': 1}},
             {'$limit': 450}
         ]

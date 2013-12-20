@@ -23,7 +23,7 @@ class BenchmarkResult(Document):
         names should contain A-Z,a-z,0-9 and hypens, and nothing more
     - metrics: This is the list of currently known metrics,
         to add more simply append a metric to the DB.
-    - testcasename: This is the name of the testcase was run,
+    - benchmarkname: This is the name of the testcase was run,
         it should be unique to your testcase.
 
     We're skipping validation to make mongokit behave more like pymongo (which
@@ -44,10 +44,10 @@ class BenchmarkResult(Document):
             'frametime': list,
             'malloc': list,
         },
-        'testcasename': basestring
+        'benchmarkname': basestring
     }
     required_fields = [
-        'branch', 'buildnumber', 'machinename', 'testcasename', 'entrytime'
+        'branch', 'buildnumber', 'machinename', 'benchmarkname', 'entrytime'
     ]
 
 
@@ -56,15 +56,15 @@ def insert_benchmark_result(resultData, benchResult):
     This method accepts a dict which must contain the following keys : type(values)
     buildnumber : int
     machinename: str
-    testcasename : str
+    benchmarkname : str
     and
     metrics.[metricname] : [[datetime.datetime.isoformat], value], [datetime.datetime.isoformat], value]...]
     where [metricname] can be the name of any metric that you wish to store.
 
     It is used to store Execution Results into the database.
     """
-    requiredKeys = ['branch', 'buildnumber', 'machinename', 'testcasename',
-                    'testcasename']
+    requiredKeys = ['branch', 'buildnumber', 'machinename', 'benchmarkname',
+                    'benchmarkname']
     for key in requiredKeys:
         if key not in resultData.keys():
             logger.error(
@@ -154,7 +154,7 @@ def append_timedelta_filter(baseFilter, daysToReturn):
 def format_cursor_to_scatterjson(cursor, metric, calc):
     testcases = {}
     for item in cursor:
-        tcname = item['testcasename']
+        tcname = item['benchmarkname']
         value = {
             'key': item['entrytime'],
             'value': item['AggregateData'][metric][str(calc)],
@@ -166,7 +166,7 @@ def format_cursor_to_scatterjson(cursor, metric, calc):
 
 
 def drop_benchmark(benchmarkname, collection):
-    collection.remove({'testcasename': benchmarkname})
+    collection.remove({'benchmarkname': benchmarkname})
 
 
 def set_search_date_restriction(search, daysToReturn):

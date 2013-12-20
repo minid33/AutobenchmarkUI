@@ -47,7 +47,7 @@ def GetData(machinename=D_MACHINE, benchmarkname=D_BENCHNAME, build=D_BUILDNO,
                 [_isouni(dt(2012, 8, 9, 17, 27, 12, 710000)), 2181651899.2],
                 [_isouni(dt(2012, 8, 9, 17, 27, 12, 727000)), 1521689151.2],
                 [_isouni(dt(2012, 8, 9, 17, 27, 12, 742000)), 198216912.0]]},
-        u"testcasename": benchmarkname,
+        u"benchmarkname": benchmarkname,
     }
     if entrytime is not None:
         data[u'entrytime'] = entrytime
@@ -66,7 +66,7 @@ def GetSampleCursor():
             "branch": 'somebranch',
             "buildnumber": 1,
             "metrics": {},
-            "testcasename": "ExplosionBenchmark",
+            "benchmarkname": "ExplosionBenchmark",
             "entrytime": '21',
             "_id": 101,
         },
@@ -79,7 +79,7 @@ def GetSampleCursor():
             "branch": 'somebranch',
             "buildnumber": 2,
             "metrics": {},
-            "testcasename": "ExplosionBenchmark",
+            "benchmarkname": "ExplosionBenchmark",
             "entrytime": '22',
             "_id": 102,
         },
@@ -92,7 +92,7 @@ def GetSampleCursor():
             "branch": 'somebranch',
             "buildnumber": 3,
             "metrics": {},
-            "testcasename": "ExplosionBenchmark",
+            "benchmarkname": "ExplosionBenchmark",
             "entrytime": '23',
             "_id": 103,
         }]
