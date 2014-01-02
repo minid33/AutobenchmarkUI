@@ -13,6 +13,7 @@ class _Config(object):
     DB_NAME = 'autobenchmark'
     ADMINEMAIL = 'youruser@yourdomain.com'
     HELPPAGE = 'http://github.com/minid33/autobenchmarkui'
+    FAQPAGE = 'http://faq/'
 
 
 class ProductionConfig(_Config):
