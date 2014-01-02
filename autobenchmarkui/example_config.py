@@ -11,6 +11,8 @@ class _Config(object):
     MONGO_USER = ''
     MONGO_PASS = ''
     DB_NAME = 'autobenchmark'
+    ADMINEMAIL = 'youruser@yourdomain.com'
+    HELPPAGE = 'http://github.com/minid33/autobenchmarkui'
 
 
 class ProductionConfig(_Config):

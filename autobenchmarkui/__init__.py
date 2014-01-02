@@ -266,8 +266,7 @@ def get_base_kwargs():
         'machines': dbmodel.get_unique_values_for_key('machinename', CONNDATA),
         'benchmarks': sorted(dbmodel.get_unique_values_for_key('benchmarkname', CONNDATA)),
         'metrics': ['fps', 'frametime', 'workingset', 'timedelta'],
-        'host': app.config['HOST'],
-        'port': app.config['PORT']
+        'appconfig': app.config
     }
 
 

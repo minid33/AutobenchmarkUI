@@ -23,7 +23,7 @@
     </div>
     <div class='col-lg-12 col-md-12 col-xs-12'>
         Data Source:<br>
-        {%  set datasource = 'http://'+host+':'+port|string+graphurl %}
+        {%  set datasource = 'http://'+appconfig['HOST']+':'+appconfig['PORT']|string+graphurl %}
         <a href="{{ datasource }}">{{ datasource }}</a>
 
     </div>
