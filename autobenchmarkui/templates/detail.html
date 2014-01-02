@@ -7,17 +7,25 @@
             <h1 class="page-header"></h1>
         </div>
 
+    {%  set graphurl =  '/scatterjson?metric='+ metric + '&bench='|safe+ bench +'&machinename='|safe +machinename %}
+
     <div class="col-lg-12 col-md-12 col-xs-12 thumb">
         <script type="text/javascript">
             DrawGraph(
                 DrawScatterGraph,
-                '/scatterjson?metric={{ metric }}&bench={{ bench }}&machinename={{ machinename }}',
+                "{{ graphurl }}",
                 '{{ machinename }} {{ bench }} {{ metric }}',
                 'graphcont',
                 '{{ metric }}'
             )
         </script>
         <div id="graphcont"></div>
+    </div>
+    <div class='col-lg-12 col-md-12 col-xs-12'>
+        Data Source:<br>
+        {%  set datasource = 'http://'+host+':'+port|string+graphurl %}
+        <a href="{{ datasource }}">{{ datasource }}</a>
+
     </div>
 </div>
 {% endblock %}
