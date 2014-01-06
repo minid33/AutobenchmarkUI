@@ -108,11 +108,11 @@ def executionjson(id_):
         'empty': False,
         'metric': metric,
         'meta': {
-            'max': "{0:.2f}".format(max(result_values)),
-            'min': "{0:.2f}".format(min(result_values)),
-            'average': "{0:.2f}".format(floatliststatistics.get_average(result_values)),
-            'range': "{0:.2f}".format(floatliststatistics.get_range(result_values)),
-            'mode': "{0:.2f}".format(floatliststatistics.get_mode(result_values)),
+            'max': "{0:.3f}".format(max(result_values)),
+            'min': "{0:.3f}".format(min(result_values)),
+            'average': "{0:.3f}".format(floatliststatistics.get_average(result_values)),
+            'range': "{0:.3f}".format(floatliststatistics.get_range(result_values)),
+            'mode': "{0:.3f}".format(floatliststatistics.get_mode(result_values)),
         }
     }
     return jsonify(result)
