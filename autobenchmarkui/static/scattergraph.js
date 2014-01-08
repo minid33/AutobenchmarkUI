@@ -55,7 +55,8 @@ function dataToSeries(resultData, colorkey, keyvalueConverter) {
 }
 
 function formatDatetimeTooltip2(x, y) {
-    return '<b>' + Highcharts.dateFormat('%a %e %b %H:%M', x) + '</b><br />';
+    y = y.toPrecision(5)
+    return '<b>' + Highcharts.dateFormat('%a %e %b %H:%M', x) + ", "+y+' </b><br />';
 }
 
 function formatDatetimeTooltip() {
