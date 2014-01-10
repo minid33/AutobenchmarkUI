@@ -61,6 +61,16 @@ def index():
     return machinegallery('TESTLAB-TA-REC')
 
 
+@app.route('/radiator/<int:days>')
+def radiator(days):
+    kwargs = get_base_kwargs()
+    kwargs.update(get_kwargs_from_request(request, days))
+    # kwargs['metric'] = kwa
+    # kwargs['benchma'] = 'Autopilot'
+    # kwargs['machinename'] = 'TESTLAB-TA-REC'
+    return render_template('radiator.html', **kwargs)
+
+
 @app.route('/machine/<machinename>')
 def machinegallery(machinename):
     kwargs = get_base_kwargs()

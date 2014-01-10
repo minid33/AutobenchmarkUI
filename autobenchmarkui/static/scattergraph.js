@@ -195,6 +195,54 @@ function DrawThumbnailGraph(resultData, title, graphcontainer, colorkey) {
 }
 
 
+function DrawRadiatorGraph(resultData, title, graphcontainer, colorkey) {
+    var series = dataToSeries(resultData, colorkey, keyvalueToPtConfig);
+
+    var options =  {
+        chart: {
+            type: 'line',
+            zoomType: 'xy',
+            renderTo: graphcontainer,
+            width: $(graphcontainer).width(),
+            height: $( window ).height() *.9
+
+
+        },
+        title: {text: title, useHTML: true},
+        series: series,
+        legend: {enabled: false},
+        xAxis: {
+            title: {enabled: true},
+            labels: {enabled: true},
+            type: 'datetime'
+        },
+        yAxis: {
+            title: {enabled: false},
+            labels:{style: { 'font-size': '400%' },
+                    step: 3}
+
+        },
+        tooltip: {
+            formatter: formatDatetimeTooltip
+        },
+        plotOptions: {
+            series: {
+                marker: {
+                    symbol: 'circle',
+                    radius: 5
+                },
+                lineWidth: 5
+            }
+        }
+    };
+
+    $('#' + graphcontainer).highcharts(options);
+    setExtremes(resultData, graphcontainer);
+
+}
+
+
+
 function DrawExecutionGraph(resultData, title, graphcontainer, colorkey) {
     var series = dataToSeries(resultData, colorkey, keyvalueToPair);
 
