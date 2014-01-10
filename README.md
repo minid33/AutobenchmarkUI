@@ -42,7 +42,7 @@ If I documented this correctly and you've followed the instructions you should b
 
 and get a nice page like this, which probably doesnt have as many graphs or results in those graphs to start with:
 
-![Benchmark results page](http://i.imgur.com/sniMIK4.png "Benchmark results")
+![Benchmark results page](http://i.imgur.com/l8mwHQB.png "Benchmark results")
 
 
 ## Requirements
