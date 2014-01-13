@@ -132,7 +132,8 @@ def executionjson(id_):
 def execution(id_):
     kwargs = {'id': id_,
               'metric': request.args['metric'],
-              'title': request.args.get('title', 'NO TITLE')
+              'title': request.args.get('title', 'NO TITLE'),
+              'appconfig': app.config,
     }
     return render_template('execution.html', **kwargs)
 
